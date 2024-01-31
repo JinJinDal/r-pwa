@@ -14,7 +14,7 @@ function App() {
     //     message:"Hello,service worker"
     // })
     navigator.serviceWorker.controller.postMessage({
-      message:"Hellow"
+      message:"Hellow",
     })
   }
 
