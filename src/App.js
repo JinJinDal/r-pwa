@@ -4,7 +4,10 @@ import './App.css';
 
 function App() {
 
-  Notification.requestPermission().then();
+  useEffect(()=>{
+    console.log(Notification.permission)
+    Notification.requestPermission().then();
+  },[])
 
   function msg(){
     // navigator.serviceWorker.controller.postMessage({
