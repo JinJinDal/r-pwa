@@ -37,5 +37,5 @@ self.addEventListener('message',(event)=>{
         })
     );
     
-     
+      
   });

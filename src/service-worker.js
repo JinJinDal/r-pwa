@@ -90,6 +90,7 @@ self.addEventListener('message',(event)=>{
 self.addEventListener('notificationclick',(event)=>{
   // console.log(event)
   // console.log(clients)
+  
   event.waitUntil(
       self.clients.matchAll().then(function(clientList) {
           console.log(clientList)
