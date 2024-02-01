@@ -86,13 +86,22 @@ self.addEventListener('message',(event)=>{
   self.registration.showNotification('title', option);
 })
 
+
 self.addEventListener('notificationclick',(event)=>{
-   if(event.action == 'open'){
-       //자세히보기
-       clients.openWindow('https://naver.com');
-   }else{
-       //닫기 많이닫기
-   }
+  // console.log(event)
+  // console.log(clients)
+  event.waitUntil(
+      self.clients.matchAll().then(function(clientList) {
+          console.log(clientList)
+          if(event.action == 'open'){
+              //자세히보기 
+              return self.clients.openWindow('https://naver.com');
+          }else{
+              //닫기
+              return event.notification.close();
+          }
+      })
+  );
 });
 
 // Any other custom service worker logic can go here.

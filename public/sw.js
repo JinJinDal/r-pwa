@@ -26,10 +26,16 @@ self.addEventListener('message',(event)=>{
   })
   
   self.addEventListener('notificationclick',(event)=>{
-     if(event.action == 'open'){
-         //자세히보기
-         clients.openWindow('https://naver.com');
-     }else{
-         //닫기 많이닫기
-     }
+    event.waitUntil(
+        self.clients.matchAll().then(function(clientList){
+            if(event.action == 'open'){
+                //자세히보기
+                return self.clients.openWindow('https://naver.com');
+            }else{
+                return event.notification.close();
+            }
+        })
+    );
+    
+     
   });
