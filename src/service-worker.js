@@ -91,7 +91,7 @@ self.addEventListener('notificationclick',(event)=>{
        //자세히보기
        clients.openWindow('https://naver.com');
    }else{
-       //닫기
+       //닫기 많이닫기
    }
 });
 
